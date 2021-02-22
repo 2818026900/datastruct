@@ -7,17 +7,26 @@
 #ifndef DATASTRUCT_LINERLIST_H
 #define DATASTRUCT_LINERLIST_H
 
+typedef enum{true, false=0} bool;
+
 //顺序表
 /*
  * 静态顺序表
+ * return 1
  */
 int seq_main();
 /*
  * 动态顺序表
+ * return 2
  */
 int sq_main();
 
 //线性链表
+/*
+ * 单链表
+ * return 3
+ */
+int sl_main();
 
 //循环链表
 

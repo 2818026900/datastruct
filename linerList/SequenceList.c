@@ -12,7 +12,7 @@
  */
 #define MaxSize 100 //定义最大长度
 
-typedef struct {
+typedef struct SeqList{
     ElemType data[MaxSize];
     int size;
 } SeqList; //定义静态顺序表数据结构
@@ -49,12 +49,12 @@ void seq_listInsert(SeqList* SeqL, int i, ElemType e)
 }
 
 //删除指定位置元素元素并获取改元素值
-int seq_listDelete(SeqList* SeqL, int i, ElemType* e)
+bool seq_listDelete(SeqList* SeqL, int i, ElemType* e)
 {
     if(i<1||i>SeqL->size)
     {
         printf("您所要删除元素的位置有误\n");
-        return -1;
+        return false;
     }
     *e = SeqL->data[i-1];
     for(int j=i; j<SeqL->size; j++)
@@ -62,7 +62,7 @@ int seq_listDelete(SeqList* SeqL, int i, ElemType* e)
         SeqL->data[j-1] = SeqL->data[j];
     }
     SeqL->size--;
-    return 0;
+    return true;
 }
 
 //按位查找静态顺序表
@@ -139,7 +139,7 @@ int seq_main()
     printf("请输入所要删除元素的位置:\n");
     fflush(stdout);
     scanf("%d",&i);
-    if(seq_listDelete(&SeqL, i, &e)==0)
+    if(seq_listDelete(&SeqL, i, &e)==true)
     {
         printf("已删除元素e= %d\n",e);
         fflush(stdout);
@@ -178,7 +178,7 @@ int seq_main()
  */
 #define InitSize 10 //初始长度
 
-typedef struct {
+typedef struct SqList{
     ElemType *base;
     int MaxLength;
     int length;
@@ -226,12 +226,12 @@ void sq_listInsert(SqList* SqL, int i, ElemType e)
 }
 
 //删除指定位置元素元素并获取改元素值
-int sq_listDelete(SqList* SqL, int i, ElemType* e)
+bool sq_listDelete(SqList* SqL, int i, ElemType* e)
 {
     if(i<0||i>SqL->length)
     {
         printf("您所要删除元素的位置有误\n");
-        return -1;
+        return false;
     }
     *e = *(SqL->base+i-1);
     for(int j=i-1; j<SqL->length; j++)
@@ -239,7 +239,7 @@ int sq_listDelete(SqList* SqL, int i, ElemType* e)
         *(SqL->base+j) = *(SqL->base+j+1);
     }
     SqL->length--;
-    return 0;
+    return true;
 }
 
 //按位查找动态顺序表
@@ -314,7 +314,7 @@ int sq_main()
     printf("请输入所要删除元素的位置:\n");
     fflush(stdout);
     scanf("%d",&i);
-    if(sq_listDelete(&SqL, i, &e)==0)
+    if(sq_listDelete(&SqL, i, &e)==true)
     {
         printf("已删除元素e= %d\n",e);
         fflush(stdout);
