@@ -23,8 +23,14 @@ int sq_main();
 
 //线性链表
 /*
- * 单链表
+ * 不带头节点单链表
  * return 3
+ */
+int nsl_main();
+
+/*
+ * 带头节点单链表
+ * return 4
  */
 int sl_main();
 

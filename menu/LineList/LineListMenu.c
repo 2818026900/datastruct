@@ -2,7 +2,7 @@
 // Created by lmy on 2021-02-20.
 //线性表菜单
 //
-#include "Menu.h"
+#include "../Menu.h"
 
 void lineListMenu()
 {
