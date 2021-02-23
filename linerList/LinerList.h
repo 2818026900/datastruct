@@ -7,7 +7,7 @@
 #ifndef DATASTRUCT_LINERLIST_H
 #define DATASTRUCT_LINERLIST_H
 
-typedef enum{true, false=0} bool;
+typedef enum{true=1, false=0} bool;
 
 //顺序表
 /*

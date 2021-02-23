@@ -14,10 +14,10 @@ typedef struct LNode{
  * 不带头节点单链表
  */
 //初始化空单链表(不带头节点)
-bool nsl_InitList(LinkList L)
+LinkList nsl_InitList(LinkList L)
 {
     L = NULL;
-    return true;
+    return L;
 }
 
 //判空（不带头节点）
@@ -32,6 +32,17 @@ bool nsl_Empty(LinkList L)
 //主调用函数（不带头结点）
 int nsl_main()
 {
+    LinkList L;//指向链表的指针
+    L = nsl_InitList(L);
+    if(nsl_Empty(L))
+    {
+        printf("不带头节点单链表为空\n");
+        fflush(stdout);
+    } else
+    {
+        printf("不带头节点单链表非空\n");
+        fflush(stdout);
+    }
     return 3;
 }
 
@@ -41,13 +52,13 @@ int nsl_main()
  * 带头节点单链表
  */
 //初始化空单链表（带头节点)
-bool sl_InitList(LinkList L)
+LinkList sl_InitList(LinkList L)
 {
     L = (LNode*)malloc(sizeof(LNode));
     if (L==NULL)
         return false;
     L->next = NULL;
-    return true;
+    return L;
 }
 
 //判空（带头节点）
@@ -60,5 +71,16 @@ bool sl_Empty(LinkList L) {
 //主调用函数（带头结点）
 int sl_main()
 {
+    LinkList L;
+    L = sl_InitList(L);
+    if(sl_Empty(L))
+    {
+        printf("带头节点单链表为空\n");
+        fflush(stdout);
+    } else
+    {
+        printf("带头节点单链表非空\n");
+        fflush(stdout);
+    }
     return 4;
 }
