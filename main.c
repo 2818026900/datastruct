@@ -115,7 +115,8 @@ int main() {
                                 case 3:
                                 {
                                     printf("线性链表\n");
-                                    nsl_main();
+                                    //nsl_main();
+                                    sl_main();
                                     fflush(stdout);
                                     break;
                                 }
