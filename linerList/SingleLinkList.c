@@ -73,7 +73,7 @@ LinkList sl_createByHeadInsert(LinkList L)
 {
     ElemType x;//定义元素类型
     LNode* node;//定义新节点
-    printf("请输入想插入数据，输入-1结束\n");
+    printf("头插法：请输入想插入数据，输入-1结束\n");
     fflush(stdout);
     while (1)
     {
@@ -85,7 +85,29 @@ LinkList sl_createByHeadInsert(LinkList L)
         node->next = L->next;
         L->next = node;
     }
-    return L;
+}
+
+//尾插法创建单链表（带头节点）
+LinkList sl_createByTailInsert(LinkList L)
+{
+    ElemType x;
+    LNode *node, *tail;
+    printf("尾插法：请输入想插入数据，输入-1结束\n");
+    fflush(stdout);
+    tail = L;
+    while (1)
+    {
+        scanf("%d",&x);
+        if(x == -1)
+        {
+            tail->next = NULL;//一定要加入这一步使得数据指向空不然会出现无限循环现象
+            return L;
+        }
+        node = (LNode*)malloc(sizeof(ElemType));
+        node->data = x;
+        tail->next = node;
+        tail = node;
+    }
 }
 
 //打印单链表（带头节点）
@@ -116,6 +138,19 @@ int sl_main()
         fflush(stdout);
     }
     L = sl_createByHeadInsert(L);
+    sl_printLink(L);
+    printf("\n");
+    L = sl_InitList(L);
+    if(sl_Empty(L))
+    {
+        printf("带头节点单链表为空\n");
+        fflush(stdout);
+    } else
+    {
+        printf("带头节点单链表非空\n");
+        fflush(stdout);
+    }
+    L = sl_createByTailInsert(L);
     sl_printLink(L);
     return 4;
 }
